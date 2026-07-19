@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VibeStore | Boutique en ligne</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-bar">
+        <a href="#home" class="brand">Vibe<span>Store</span></a>
+        <nav class="menu">
+          <a href="#home">Accueil</a>
+          <a href="#produits">Produits</a>
+          <a href="#about">À propos</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="cart-pill">
+          <span>🛒</span>
+          <span id="cartCount">0</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Nouvelle collection</p>
+            <h1>Des produits modernes livrés rapidement.</h1>
+            <p class="hero-text">
+              Découvrez des articles tendance, qualité premium et une expérience d’achat simple et rapide.
+            </p>
+            <div class="hero-actions">
+              <a href="#produits" class="btn btn-primary">Voir les produits</a>
+              <a href="#contact" class="btn btn-secondary">Passer commande</a>
+            </div>
+            <div class="hero-highlights">
+              <div>
+                <strong>24h</strong>
+                <span>Livraison express</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>Clients satisfaits</span>
+              </div>
+              <div>
+                <strong>100%</strong>
+                <span>Paiement sécurisé</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <p class="eyebrow">Offre du moment</p>
+            <h3>Pack découverte</h3>
+            <p>Recevez 15% de réduction sur votre premier panier avec le code WELCOME15.</p>
+            <ul>
+              <li>Livraison gratuite à partir de 50 000 XOF</li>
+              <li>Suivi de commande en temps réel</li>
+              <li>Retour sous 14 jours</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="produits" class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Boutique</p>
+            <h2>Nos produits phares</h2>
+            <p>Choisissez parmi nos articles préférés, fabriqués pour le quotidien et le style.</p>
+          </div>
+          <div id="productGrid" class="product-grid"></div>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div class="container about-grid">
+          <div>
+            <p class="eyebrow">Pourquoi nous choisir</p>
+            <h2>Une boutique moderne pensée pour votre confort.</h2>
+            <p>
+              VibeStore combine design, rapidité et service client. Chaque produit est sélectionné pour offrir un excellent rapport qualité-prix.
+            </p>
+          </div>
+          <div class="about-cards">
+            <div class="mini-card">
+              <h3>Qualité garantie</h3>
+              <p>Produits sélectionnés avec soin.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Support réactif</h3>
+              <p>Notre équipe répond en moins de 2 heures.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container contact-grid">
+          <div class="contact-card">
+            <p class="eyebrow">Contact</p>
+            <h2>Prêt à commander ?</h2>
+            <p>Envoyez-nous un message pour toute question ou demande spéciale.</p>
+            <form class="contact-form" id="contactForm">
+              <input type="text" placeholder="Nom complet" required />
+              <input type="email" placeholder="Email" required />
+              <textarea rows="5" placeholder="Votre message" required></textarea>
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
+          </div>
+
+          <aside class="cart-card" id="panier">
+            <div class="cart-header">
+              <h3>Mon panier</h3>
+              <p>Ajoutez vos produits et validez en un clic.</p>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-footer">
+              <div class="total-row">
+                <span>Total</span>
+                <strong id="totalPrice">0 XOF</strong>
+              </div>
+              <button id="checkoutBtn" class="btn btn-primary">Commander</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>© 2026 VibeStore. Boutique en ligne.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+               
+              </ul>
+            </div>
+          </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Me Contacter</h2>
+        <div class="contact-wrapper">
+          <div class="contact-form-container">
+            <form class="contact-form" id="contactForm">
+              <div class="form-group">
+                <input type="text" placeholder="Votre nom complet" required />
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Votre email" required />
+              </div>
+              <div class="form-group">
+                <input type="text" placeholder="Sujet" required />
+              </div>
+              <div class="form-group">
+                <textarea placeholder="Votre message" rows="6" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer le message</button>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <h3>Coordonnées</h3>
+            <div class="info-item">
+              <h4>📍 Adresse</h4>
+              <p>Tivaouane Peulh<br />Dakar, Sénégal</p>
+            </div>
+            <div class="info-item">
+              <h4>📞 Téléphone</h4>
+              <p><a href="tel:+22178569458">+221 78 569 84 58</a></p>
+            </div>
+            <div class="info-item">
+              <h4>📧 Email</h4>
+              <p><a href="mailto:ibrahima95781@gmail.com">ibrahima95781@gmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Ibrahima Ba. Portfolio Professionnel. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
