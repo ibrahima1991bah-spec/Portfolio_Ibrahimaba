@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     name: 'Écouteurs sans fil',
-    price: 59000,
+    price: 5000,
     description: 'Audio immersif avec autonomie jusqu’à 30 heures.',
     tag: 'Meilleure vente',
     icon: '🎧'
@@ -10,7 +10,7 @@ const products = [
   {
     id: 2,
     name: 'Sac de voyage',
-    price: 45000,
+    price: 4000,
     description: 'Design moderne, compartiments spacieux et résistant.',
     tag: 'Nouveau',
     icon: '🎒'
@@ -18,7 +18,7 @@ const products = [
   {
     id: 3,
     name: 'Montre connectée',
-    price: 89000,
+    price: 8000,
     description: 'Suivi du sport, notifications intelligentes et batterie longue durée.',
     tag: 'Populaire',
     icon: '⌚'
@@ -26,7 +26,7 @@ const products = [
   {
     id: 4,
     name: 'Lampe d’ambiance',
-    price: 32000,
+    price: 3200,
     description: 'Éclairage doux et réglable pour votre espace de travail.',
     tag: 'Offre spéciale',
     icon: '💡'
