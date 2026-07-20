@@ -374,7 +374,7 @@ footer {
     padding-top: 2.5rem;
   }
 }
-whatsapp-link {
+.whatsapp-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
