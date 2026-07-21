@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Boutique en ligne IbaBoutique - commande via WhatsApp, paiement Wave, produits modernes et livraison rapide." />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://wa.me; script-src 'self'; style-src 'self'; connect-src 'self' https://wa.me; img-src 'self' data:; font-src 'self'; base-uri 'self';" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>E-commerce IbaBoutique | Boutique en ligne</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -30,7 +34,7 @@
             <p class="eyebrow">Nouvelle collection</p>
             <h1>Des produits modernes livrés rapidement.</h1>
             <p class="hero-text">
-              Ce site est en phase de teste et de maintenance si vous avez des sugestion faite moi signe.
+              Commandez directement depuis le site par WhatsApp et payez facilement avec Wave.
             </p>
             <div class="hero-actions">
               <a href="#produits" class="btn btn-primary">Voir les produits</a>
@@ -82,7 +86,7 @@
             <p class="eyebrow">Pourquoi nous choisir</p>
             <h2>Une boutique moderne pensée pour votre confort.</h2>
             <p>
-              VibeStore combine design, rapidité et service client. Chaque produit est sélectionné pour offrir un excellent rapport qualité-prix.
+              IbaBoutique combine design, rapidité et service client. Chaque produit est sélectionné pour offrir un excellent rapport qualité-prix.
             </p>
           </div>
           <div class="about-cards">
@@ -104,9 +108,10 @@
             <p class="eyebrow">Contact</p>
             <div class="info-item">
               <h4>💬 WhatsApp</h4>
+              <p>Disponible sur WhatsApp : <strong>785698458</strong></p>
               <p>
                 <a
-                  href="https://wa.me/221785698458?text=Bonjour%20Ibrahima%2C%20je%20vous%20contacte%20depuis%20votre%20site."
+                  href="https://wa.me/221785698458?text=Bonjour%20Ibrahima%2C%20je%20vous%20contacte%20pour%20une%20commande%20via%20le%20site."
                   class="whatsapp-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -116,7 +121,13 @@
               </p>
             </div>
             <h2>Prêt à commander ?</h2>
-            <p>Envoyez-nous un message pour toute question ou demande spéciale.</p>
+            <p>Ajoutez vos produits au panier, complétez vos informations et envoyez votre commande par WhatsApp.</p>
+            <div class="payment-card">
+              <h4>Paiement Wave</h4>
+              <p>Payez facilement avec Wave au numéro <strong>785698458</strong>.
+              Indiquez votre nom et votre numéro de commande.</p>
+              <p>Nous confirmons votre paiement puis préparons l'expédition.</p>
+            </div>
             <form class="contact-form" id="contactForm">
               <input type="text" placeholder="Nom complet" required />
               <input type="email" placeholder="Email" required />
@@ -131,12 +142,17 @@
               <p>Ajoutez vos produits et validez en un clic.</p>
             </div>
             <div id="cartItems" class="cart-items"></div>
+            <div class="order-fields">
+              <input id="customerName" type="text" placeholder="Nom complet" required />
+              <input id="customerPhone" type="tel" placeholder="Téléphone WhatsApp" pattern="^\+?\d[\d\s-]{7,}$" required />
+              <textarea id="deliveryAddress" rows="3" placeholder="Adresse de livraison" required></textarea>
+            </div>
             <div class="cart-footer">
               <div class="total-row">
                 <span>Total</span>
                 <strong id="totalPrice">0 XOF</strong>
               </div>
-              <button id="checkoutBtn" class="btn btn-primary">Commander</button>
+              <button id="checkoutBtn" class="btn btn-primary">Commander sur WhatsApp</button>
             </div>
           </aside>
         </div>
@@ -145,69 +161,10 @@
 
     <footer>
       <div class="container">
-        <p>© 2026 Iba. Boutique en ligne.</p>
+        <p>© 2026 Iba. Boutique en ligne. Tous droits réservés.</p>
       </div>
     </footer>
 
     <script src="script.js"></script>
   </body>
-</html>
-
-               
-              </ul>
-            </div>
-          </div>
-    </section>
-
-    <!-- SECTION CONTACT -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Me Contacter</h2>
-        <div class="contact-wrapper">
-          <div class="contact-form-container">
-            <form class="contact-form" id="contactForm">
-              <div class="form-group">
-                <input type="text" placeholder="Votre nom complet" required />
-              </div>
-              <div class="form-group">
-                <input type="email" placeholder="Votre email" required />
-              </div>
-              <div class="form-group">
-                <input type="text" placeholder="Sujet" required />
-              </div>
-              <div class="form-group">
-                <textarea placeholder="Votre message" rows="6" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Envoyer le message</button>
-            </form>
-          </div>
-
-          <div class="contact-info">
-            <h3>Coordonnées</h3>
-            <div class="info-item">
-              <h4>📍 Adresse</h4>
-              <p>Tivaouane Peulh<br />Dakar, Sénégal</p>
-            </div>
-            <div class="info-item">
-              <h4>📞 Téléphone</h4>
-              <p><a href="tel:+22178569458">+221 78 569 84 58</a></p>
-            </div>
-            <div class="info-item">
-              
-             
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Ibrahima Ba. Site e-commerce Professionnel. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
 </html>
