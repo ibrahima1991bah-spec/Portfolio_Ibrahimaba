@@ -311,13 +311,47 @@ img {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 1rem;
   padding: 0.7rem 0;
   border-bottom: 1px solid var(--border);
 }
 
-.cart-item strong {
+.cart-item-info {
+  min-width: 0;
+}
+
+.cart-item-info strong {
   display: block;
+}
+
+.cart-item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.quantity-controls {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(15, 118, 110, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.cart-qty-btn {
+  width: 2.2rem;
+  height: 2.2rem;
+  border: none;
+  background: transparent;
+  color: var(--primary-dark);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cart-qty-btn:hover {
+  background: rgba(15, 118, 110, 0.12);
 }
 
 .remove-btn {
@@ -326,6 +360,29 @@ img {
   color: #dc2626;
   font-weight: 700;
   cursor: pointer;
+}
+
+.order-fields {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+.order-fields input,
+.order-fields textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 0.85rem 1rem;
+  font: inherit;
+}
+
+.payment-card {
+  background: rgba(15, 118, 110, 0.08);
+  border: 1px solid rgba(15, 118, 110, 0.16);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0 1.2rem;
 }
 
 .cart-footer {
@@ -343,6 +400,24 @@ footer {
   padding: 1.5rem 0 2.5rem;
   text-align: center;
   color: var(--muted);
+}
+
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: #25d366;
+  color: white;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.whatsapp-link:hover {
+  background: #1ebe5b;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 900px) {
@@ -373,34 +448,4 @@ footer {
   .hero {
     padding-top: 2.5rem;
   }
-}
-.whatsapp-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: #25d366;
-  color: white;
-  padding: 0.7rem 1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.whatsapp-link:hover {
-  background: #1ebe5b;
-  transform: translateY(-1px);
-}
-
-  .hero-content .subtitle {
-    font-size: 1.1rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
-}
+}

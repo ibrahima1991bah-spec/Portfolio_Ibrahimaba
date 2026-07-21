@@ -1,4 +1,4 @@
-const products = [
+﻿const products = [
   {
     id: 1,
     name: 'Écouteurs sans fil',
@@ -41,6 +41,9 @@ const cartCount = document.getElementById('cartCount');
 const totalPrice = document.getElementById('totalPrice');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const contactForm = document.getElementById('contactForm');
+const customerNameInput = document.getElementById('customerName');
+const customerPhoneInput = document.getElementById('customerPhone');
+const deliveryAddressInput = document.getElementById('deliveryAddress');
 
 function formatPrice(value) {
   return `${value.toLocaleString('fr-FR')} XOF`;
@@ -69,11 +72,18 @@ function renderCart() {
 
   cartItems.innerHTML = cart.map((item) => `
     <div class="cart-item">
-      <div>
+      <div class="cart-item-info">
         <strong>${item.name}</strong>
         <span>${formatPrice(item.price)} × ${item.quantity}</span>
       </div>
-      <button class="remove-btn" data-id="${item.id}">Supprimer</button>
+      <div class="cart-item-actions">
+        <div class="quantity-controls">
+          <button class="cart-qty-btn" data-id="${item.id}" data-action="decrease">-</button>
+          <span>${item.quantity}</span>
+          <button class="cart-qty-btn" data-id="${item.id}" data-action="increase">+</button>
+        </div>
+        <button class="remove-btn" data-id="${item.id}">Supprimer</button>
+      </div>
     </div>
   `).join('');
 
@@ -96,12 +106,39 @@ function addToCart(id) {
   renderCart();
 }
 
+function updateQuantity(id, change) {
+  const item = cart.find((entry) => entry.id === Number(id));
+  if (!item) return;
+
+  item.quantity += change;
+  if (item.quantity <= 0) {
+    removeFromCart(id);
+    return;
+  }
+
+  renderCart();
+}
+
 function removeFromCart(id) {
   const index = cart.findIndex((item) => item.id === Number(id));
   if (index === -1) return;
 
   cart.splice(index, 1);
   renderCart();
+}
+
+function isValidPhone(phone) {
+  return /^\+?\d[\d\s-]{7,}$/.test(phone.trim());
+}
+
+function buildWhatsAppMessage() {
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const itemsList = cart
+    .map((item) => `${item.quantity} × ${item.name} (${formatPrice(item.price)})`)
+    .join('\n');
+
+  const text = `Bonjour Ibrahima,\n\nJe souhaite passer commande via votre site.\n\nProduits:\n${itemsList}\n\nTotal: ${formatPrice(total)}\n\nNom: ${customerNameInput.value.trim()}\nTéléphone WhatsApp: ${customerPhoneInput.value.trim()}\nAdresse de livraison: ${deliveryAddressInput.value.trim()}\n\nJ'utilise Wave pour le paiement. Merci de confirmer la commande.`;
+  return encodeURIComponent(text);
 }
 
 productGrid.addEventListener('click', (event) => {
@@ -112,9 +149,16 @@ productGrid.addEventListener('click', (event) => {
 });
 
 cartItems.addEventListener('click', (event) => {
-  const button = event.target.closest('.remove-btn');
-  if (button) {
-    removeFromCart(button.dataset.id);
+  const removeButton = event.target.closest('.remove-btn');
+  if (removeButton) {
+    removeFromCart(removeButton.dataset.id);
+    return;
+  }
+
+  const qtyButton = event.target.closest('.cart-qty-btn');
+  if (qtyButton) {
+    const action = qtyButton.dataset.action;
+    updateQuantity(qtyButton.dataset.id, action === 'increase' ? 1 : -1);
   }
 });
 
@@ -124,9 +168,22 @@ checkoutBtn.addEventListener('click', () => {
     return;
   }
 
-  alert('Commande reçue ! Nous vous contacterons très bientôt pour la confirmation.');
-  cart.length = 0;
-  renderCart();
+  const name = customerNameInput.value.trim();
+  const phone = customerPhoneInput.value.trim();
+  const address = deliveryAddressInput.value.trim();
+
+  if (!name || !phone || !address) {
+    alert('Merci de renseigner votre nom, téléphone et adresse de livraison.');
+    return;
+  }
+
+  if (!isValidPhone(phone)) {
+    alert('Merci de saisir un numéro WhatsApp valide.');
+    return;
+  }
+
+  const whatsappUrl = `https://wa.me/221785698458?text=${buildWhatsAppMessage()}`;
+  window.open(whatsappUrl, '_blank', 'noopener');
 });
 
 contactForm.addEventListener('submit', (event) => {
@@ -137,4 +194,3 @@ contactForm.addEventListener('submit', (event) => {
 
 renderProducts();
 renderCart();
-console.log('Boutique VibeStore prête à être utilisée.');
